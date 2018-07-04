@@ -7,4 +7,4 @@
 
 FILE=hosts-$(date +%s).txt
 sudo nmap -sn "$1"  -Pn > $FILE 
-grep -o '.*)$' $FILE | grep -o -P "(?<=scan report for ).*" | awk '{print $1, $2}'
+grep -o '.*)$' $FILE | grep -o -P "(?<=scan report for ).*" | awk '{print $1, $2}' | tr -d "()'" 
